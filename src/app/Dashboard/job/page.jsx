@@ -236,7 +236,7 @@ export default function PostJobForm({ company }) {
           </div>
         </div>
 
-        {/* SUBMIT BUTTON */}
+  
         <button
           type="submit"
           className="w-full bg-white text-black py-3 rounded font-semibold hover:bg-gray-200 transition-colors text-lg"
