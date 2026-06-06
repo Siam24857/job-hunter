@@ -17,7 +17,7 @@ export default function PostJobForm({ company }) {
     responsibilities: "",
     requirements: "",
     benefits: "",
-    companyId: company?.id || "",
+    companyId: company?.id || "12345",
   });
 
   const handleChange = (e) => {
@@ -40,16 +40,14 @@ export default function PostJobForm({ company }) {
     e.preventDefault();
 
     console.log("Form Data:", form);
+    
 
-    const res = await fetch("/api/jobs", {
+    const res = await fetch("http://localhost:5000/addjob", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        ...form,
-        status: "active",
-      }),
+      body: JSON.stringify(form),
     });
 
     const data = await res.json();
