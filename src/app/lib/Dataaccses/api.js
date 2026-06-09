@@ -12,3 +12,11 @@ export const creatcompnay = async (companydata) => {
    })
    const data = await res.json()
 }
+
+
+//dfgdfggdgdggdggdgdgdf
+
+
+
+
+
