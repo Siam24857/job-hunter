@@ -9,6 +9,7 @@ export default function Pricing() {
   const jobSeekersPlans = [
     {
       name: "Free",
+      id: "low-price",
       price: "$0",
       period: "/forever",
       features: [
@@ -20,6 +21,7 @@ export default function Pricing() {
     },
     {
       name: "Pro",
+      id: "pro-price",
       price: "$19",
       period: "/month",
       popular: true,
@@ -32,6 +34,7 @@ export default function Pricing() {
     },
     {
       name: "Premium",
+      id: "medium-price",
       price: "$39",
       period: "/month",
       features: [
@@ -46,6 +49,7 @@ export default function Pricing() {
   const recruiterPlans = [
     {
       name: "Free",
+      id: "low-price",
       price: "$0",
       period: "/forever",
       features: [
@@ -179,15 +183,19 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button
-                className={`w-full py-3 rounded-lg font-semibold transition ${
+
+          <form action="/api/checkout_sessions" method="POST">
+        <input type="hidden" name="priceId" value={plan.id} />
+      <section>
+        <button className={`w-full py-3 rounded-lg font-semibold transition ${
                   plan.popular
                     ? "bg-blue-600 hover:bg-blue-700"
                     : "bg-slate-800 hover:bg-slate-700"
-                }`}
-              >
-                Get Started
-              </button>
+                }`} type="submit" role="link">
+           Get Started
+        </button>
+      </section>
+    </form>
             </div>
           ))}
         </div>
