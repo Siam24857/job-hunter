@@ -1,9 +1,13 @@
 
 import {Bars, Bell, Envelope, Gear, House, Magnifier, Person} from "@gravity-ui/icons";
 import {Button, Drawer} from "@heroui/react";
+import { getuser } from "../core/getuser";
+ 
 
-export function Dashboradlayout() {
-  const navItems = [
+export async function Dashboradlayout() {
+
+  const userinfo = await getuser()
+  const recutioternavItems = [
     {icon: House, label: "Home"},
     {icon: Magnifier, label: "Search"},
     {icon: Bell, label: "Notifications"},
@@ -11,6 +15,19 @@ export function Dashboradlayout() {
     {icon: Person, label: "Profile"},
     {icon: Gear, label: "Settings"},
   ];
+  const seekernavItems = [
+    {icon: House, label: "Home"},
+    {icon: Magnifier, label: "Search"},
+    {icon: Bell, label: "Notifications"},
+    {icon: Person, label: "Profile"},
+  ];
+
+  const navprodusts = {
+    'recruiter' : recutioternavItems,
+    'seeker': seekernavItems,
+  }
+
+  const navItems = navprodusts[userinfo?.role] || [];
 
   const Navesections = <nav className="flex flex-col gap-1">
                 {navItems.map((item) => (

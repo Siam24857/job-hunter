@@ -1,5 +1,8 @@
 "use server"
 
+import { headers } from "next/headers";
+import { auth } from "../auth";
+
 const  API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const creatcompnay = async (companydata) => {
@@ -14,8 +17,7 @@ export const creatcompnay = async (companydata) => {
 }
 
 
-//dfgdfggdgdggdggdgdgdf
-
+ 
 
 
 
