@@ -4,7 +4,7 @@ import { getrole } from "@/app/core/getuser";
 
 const layout = async({children}) => {
      
-    await getrole("recruiter");
+    await getrole("admin");
     return children;
 };
 

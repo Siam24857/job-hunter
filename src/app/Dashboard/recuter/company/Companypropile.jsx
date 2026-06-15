@@ -99,7 +99,7 @@ export default function CompanyProfile({ companys, recuiterdata }) {
             setErrors(newErrors);
             return;
         }
-
+           
         // Commit state updates
         const newCompanyData = {
             name: companyName,
@@ -109,9 +109,10 @@ export default function CompanyProfile({ companys, recuiterdata }) {
             employeeCount: employeeCount || '1-10 employees',
             description,
             logo: logoUrl || (company ? company.logo : ''),
-            status: company ? company.status : 'Pending',
-            roomId: recuiterdata?.id // Added optional chaining for safety
+            roomId: recuiterdata?.id ,
+            status: company?.status || 'Pending'
         };
+        
         
         setCompany(newCompanyData);
 
