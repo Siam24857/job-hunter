@@ -10,6 +10,14 @@ export const getuser = async () => {
 
 return session?.user || null
 }
+export const getsession = async () => {
+    const session = await auth.api.getSession({
+    headers: await headers() // some endpoints might require headers
+})
+
+
+return session?.session || null
+}
 
 
 export const getrole = async (role) =>{
